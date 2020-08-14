@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-UberEatsMobileApp<uberEatsClone_53e1a791>",
+            "request": "launch",
+            "mainClass": "UberEatsMobileApp",
+            "projectName": "uberEatsClone_53e1a791"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-UberEatsRestaurantApp<uberEatsClone_53e1a791>",
+            "request": "launch",
+            "mainClass": "UberEatsRestaurantApp",
+            "projectName": "uberEatsClone_53e1a791"
+        }
+    ]
+}

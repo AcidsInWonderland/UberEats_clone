@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class UberEatsMobileApp {
@@ -10,7 +12,7 @@ public class UberEatsMobileApp {
         Scanner sc = new Scanner(System.in);
         System.out.println("Select location to load restaruants. Options are rondebosch, kenilworth, seapoint or all\n");
         //takes user input
-        String preference = sc.nextLine();
+        String location = sc.nextLine();
 
         System.out.println("Loading restaurants in your area...\n");
         //load list of restaruants
@@ -20,6 +22,10 @@ public class UberEatsMobileApp {
          * 3. Burger King
          * ....from CSV file
          */
+        UberChoose uc = new UberChoose();
+        ArrayList<Restos> displayRestos = uc.getRestosByLocation(location);
+
+        Iterator<Restos> iterator = displayRestos.iterator();
 
         System.out.println("Select restaurant number (eg '1' for KFC)...\n");
         //takes user input
