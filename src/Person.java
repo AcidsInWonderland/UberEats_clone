@@ -1,4 +1,4 @@
-public class Person {
+public class Person{
 
     //instance variables
     private String name;

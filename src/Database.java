@@ -58,4 +58,12 @@ public class Database {
         // TODO: actually do this and change return type
         return allRestos;
         }
+
+	public void WritetoCSV(Restos restos) {
+             
+	}
+
+	public void closeFileWriting() {
+    }
+    
 }
