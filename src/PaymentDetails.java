@@ -4,12 +4,13 @@ public class PaymentDetails {
     private String tips;
     private String tax;
     private String total;
+    private Object productName;
  
     public PaymentDetails(String YourOrder,
         String shipping, String tips, String tax, String total) {
         this.productName = String YourOrder;
         this.shipping = String shipping;
-        this.tips. = String tips;
+        this.tips = String tips;
         this.tax = String tax;
         this.total = String total;
     }

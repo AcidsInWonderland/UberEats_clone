@@ -1,11 +1,11 @@
 public class DeliveryDriver {
 
     //instance variables
-    Motobike motobike;
+    Vehicle motobike;
     String licenseID;
     
     //constructor
-    DeliveryDriver(motobike motobike, String licenseID, String name, String surname,String phone_number){
+    DeliveryDriver(Vehicle motobike, String licenseID, String name, String surname,String phone_number){
         super(name,surname,phone_number,cash);   
         this.motobike = motobike;
         this.licenseID = licenseID;    
@@ -15,7 +15,7 @@ public class DeliveryDriver {
     //methods
 
     //setters
-    public void setMotobike(motobike motobike){
+    public void setVehicle(Vehicle motobike){
         this.car = car;
     }
 
@@ -23,7 +23,7 @@ public class DeliveryDriver {
         this.licenseID = licenseID;
     }
 
-    public Car getMotobike(){
+    public Vehicle getMotobike(){
         return this.motobike;
     }
 
