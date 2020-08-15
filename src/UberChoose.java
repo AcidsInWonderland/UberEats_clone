@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 public class UberChoose {
@@ -8,9 +9,9 @@ public class UberChoose {
         this.db = new Database();
     }
 
-    public ArrayList<Restos> getRestosByLocation(String location) {
+    public ArrayList<Restos> getRestosByLocation(String location) throws IOException {
         ArrayList<Restos> returnList;
-        db.readFromCSV("restos.csv");
+        db.readFromCSV("bin\\restos.csv");
         if(location == "kenilworth") {
             returnList = db.getKenilworthRestos();
         }

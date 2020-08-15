@@ -9,7 +9,10 @@ public class Restos {
         this.restaurant = restaurant;
     }
 
-    //methods
+    public Restos(Orders o, String restaurant2) {
+	}
+
+	//methods
     public String clientLocation(){
 
         Orders o = this.getOrders();

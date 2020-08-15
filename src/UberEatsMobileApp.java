@@ -1,13 +1,16 @@
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
+// import java.util.Iterator;
 import java.util.Scanner;
 
 public class UberEatsMobileApp {
 
     /**
      * This is the main function that runs when I run the file after compiling.
+     * 
+     * @throws IOException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to UberEatsApp - signature dish edition\n");
         Scanner sc = new Scanner(System.in);
         System.out.println("Select location to load restaruants. Options are rondebosch, kenilworth, seapoint or all\n");
@@ -25,10 +28,17 @@ public class UberEatsMobileApp {
         UberChoose uc = new UberChoose();
         ArrayList<Restos> displayRestos = uc.getRestosByLocation(location);
 
-        Iterator<Restos> iterator = displayRestos.iterator();
+        // Iterator<Restos> iterator = displayRestos.iterator();
+        String displayName = "select restuarant number:";
+        int number = 1; 
+        for (Restos restos : displayRestos) {
+            displayName = displayName + "\n " + number+ ": " + restos.getRestaurant().getName();
+            number++;
+        }
 
-        System.out.println("Select restaurant number (e.g. '1' for KFC)...\n");
+        System.out.println(displayName+"\n");
         //takes user input
+        String restosString  = sc.nextLine();
 
         
         System.out.println("Loading dishes from your selected restaurant...\n");

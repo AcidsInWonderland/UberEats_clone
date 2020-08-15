@@ -16,26 +16,25 @@ public class Database {
         }
     }
 
-    public void readFromCSV(String filename) {
+    public void readFromCSV(String filename) throws IOException {
         BufferedReader br = null;
-        String line = "";
+        String line = " ";
         String cvsSplitBy = ",";
-        int i = 0;
         String restaurant = " ";
     try {
            br = new BufferedReader(new FileReader(filename));
            Orders o = new Orders();
            while ((line = br.readLine()) != null) {
                String[] data = line.split(cvsSplitBy);
-               if(i>0) {
+               for(int i = 0; i < 3; i++) {
+                
                }
             }
         Restos restos = new Restos(o, restaurant);
         this.allRestos.add(restos);
-    } catch(Error e){
-
-    }
-
+    } catch (Exception e) {
+            System.out.println(" Error" + e);
+        }
     }
 
     public ArrayList<Restos> getKenilworthRestos(){
@@ -60,10 +59,10 @@ public class Database {
         }
 
 	public void WritetoCSV(Restos restos) {
-             
-	}
-
-	public void closeFileWriting() {
+       
     }
+
     
+	public void closeFileWriting() {
+	} 
 }
