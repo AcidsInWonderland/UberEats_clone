@@ -18,7 +18,7 @@ public class UberChoose {
             returnList = db.getSeapointRestos();
         }
         else if(location == "rondebosch") {
-            returnList = db.getRondebosch();
+            returnList = db.getRondeboschRestos();
         }
         else {
             returnList = db.getAllRestos();

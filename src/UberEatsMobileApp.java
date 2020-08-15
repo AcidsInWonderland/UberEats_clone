@@ -27,7 +27,7 @@ public class UberEatsMobileApp {
 
         Iterator<Restos> iterator = displayRestos.iterator();
 
-        System.out.println("Select restaurant number (eg '1' for KFC)...\n");
+        System.out.println("Select restaurant number (e.g. '1' for KFC)...\n");
         //takes user input
 
         

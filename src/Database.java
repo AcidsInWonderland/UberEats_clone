@@ -21,15 +21,41 @@ public class Database {
         String line = "";
         String cvsSplitBy = ",";
         int i = 0;
-
-//        try {
-//            br = new BufferedReader(new FileReader(filename));
-//            while ((line = br.readLine()) != null) {
-//                String[] data = line.split(cvsSplitBy);
-//                if(i>0) {
-//                    Orders o = new Orders(data[0], Integer.parseInt(data[1]), data[2], data[3], data[4]);
-
+        String restaurant = " ";
+    try {
+           br = new BufferedReader(new FileReader(filename));
+           Orders o = new Orders();
+           while ((line = br.readLine()) != null) {
+               String[] data = line.split(cvsSplitBy);
+               if(i>0) {
+               }
+            }
         Restos restos = new Restos(o, restaurant);
         this.allRestos.add(restos);
+    } catch(Error e){
+
     }
+
+    }
+
+    public ArrayList<Restos> getKenilworthRestos(){
+        // TODO: actually do this and change return type
+        return kenilworthRestos;
+        } 
+
+    public ArrayList<Restos> getSeapointRestos() {
+        // TODO: actually do this and change return type
+        return seapointRestos;
+        }
+
+    public ArrayList<Restos> getRondeboschRestos() {
+        // TODO: actually do this and change return type
+        return rondeboschRestos;
+        }
+
+
+    public ArrayList<Restos> getAllRestos() {
+        // TODO: actually do this and change return type
+        return allRestos;
+        }
 }

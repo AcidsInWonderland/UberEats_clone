@@ -1,34 +1,33 @@
 public class DeliveryDriver {
 
     //instance variables
-    Vehicle motobike;
-    String licenseID;
+    Vehicle vehicle;
+    Driver driver;
     
     //constructor
-    DeliveryDriver(Vehicle motobike, String licenseID, String name, String surname,String phone_number){
-        super(name,surname,phone_number,cash);   
-        this.motobike = motobike;
-        this.licenseID = licenseID;    
+    DeliveryDriver(Vehicle motobike, Driver driver){
+        this.vehicle = motobike;
+        this.driver = driver;    
     }
 
 
     //methods
 
     //setters
-    public void setVehicle(Vehicle motobike){
-        this.car = car;
+    public void setVehicle(Vehicle vehicle){
+        this.vehicle = vehicle;
     }
 
-    public void setlicenseID(String licenseID){
-        this.licenseID = licenseID;
+    public void setDriver(Driver driver){
+        this.driver = driver;
     }
 
     public Vehicle getMotobike(){
-        return this.motobike;
+        return this.vehicle;
     }
 
-    public String getlicenseID(){
-        return  this.licenseID;
+    public Driver getDriver(){
+        return this.driver;
     }
 
     public String toString(){

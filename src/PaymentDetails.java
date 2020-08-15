@@ -4,35 +4,35 @@ public class PaymentDetails {
     private String tips;
     private String tax;
     private String total;
-    private Object productName;
+  //  private Object productName;
  
     public PaymentDetails(String YourOrder,
         String shipping, String tips, String tax, String total) {
-        this.productName = String YourOrder;
-        this.shipping = String shipping;
-        this.tips = String tips;
-        this.tax = String tax;
-        this.total = String total;
+        this.YourOrder = YourOrder;
+        this.shipping = shipping;
+        this.tips = tips;
+        this.tax = tax;
+        this.total = total;
     }
  
     public String getYourOrder() {
-        return String YourOrder;
+        return YourOrder;
     }
  
  
     public String getShipping() {
-        return String shipping;
+        return shipping;
     }
 
     public String getTips() {
-        return String tips;
+        return tips;
     }
  
     public String getTax() {
-        return String tax;
+        return tax;
     }
      
     public String getTotal() {
-        return String total;
+        return total;
     }
 }

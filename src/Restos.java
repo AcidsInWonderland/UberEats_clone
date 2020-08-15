@@ -9,7 +9,13 @@ public class Restos {
         this.restaurant = restaurant;
     }
 
+    //methods
+    public String clientLocation(){
 
+        Orders o = this.getOrders();
+        return "Restaurant: " + o.getLocationName();
+
+    }
     //setters
 
     public void setOrders(Orders orders){
@@ -29,15 +35,4 @@ public class Restos {
     public Restaurant getRestaurant() {
         return this.restaurant;
     }
-
-    public String toString(){
-
-        Orders o = this.getOrders();
-        return "Restaurant: " + o.getName();
-
-
-
-
-    }
-
 }

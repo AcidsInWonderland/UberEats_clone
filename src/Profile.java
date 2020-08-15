@@ -4,10 +4,11 @@ public class Profile {
     String email;
 
     //constructor
-    Profile(String email, String name, String surname,String mobile contact){
-        super(name,surname,mobile_contact);
+    Profile(String email, String name, String surname, String mobileContact){
+        super(name,surname,mobileContact);
         this.email = email;
     }
+
 
     //methods
 
