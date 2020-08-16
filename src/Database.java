@@ -7,7 +7,7 @@ public class Database {
     ArrayList<Restos> seapointRestos = new ArrayList<Restos>();
     ArrayList<Restos> rondeboschRestos = new ArrayList<Restos>();
     FileWriter csvWriter;
-    private ArrayList<Dishes> dishes;
+
 
     Database() {
         try {
@@ -21,25 +21,27 @@ public class Database {
         BufferedReader br = null;
         String line = " ";
         String cvsSplitBy = ",";
-        String restaurantLocation = "";
-        String resturantName = "";
+        int lineNo = 0;
     try {
-           br = new BufferedReader(new FileReader("./bin/restos.csv"));//fr);
-           Orders o = new Orders();
-           Restaurant restaurant = new Restaurant(resturantName);
+           br = new BufferedReader(new FileReader("UberEats_clone-1\\bin\\restos.csv"));//fr);
+           
            while ((line = br.readLine()) != null) {
-               String[] data = line.split(cvsSplitBy);
-               restaurantLocation = data[7];
-               resturantName = data[0];
-               for(int i = 0; i < 3; i++) {
-                int j = 2*i;
-                dishes.add(new Dishes(data[j+1].trim(), Integer.parseInt(data[j+2].trim())));	
+               if(lineNo == 0) {
+                lineNo++;
+               } else {
+                String[] data = line.split(cvsSplitBy);
+                ArrayList<Dishes> dishes = new ArrayList<Dishes>();
+                Orders o = new Orders();
+                Restaurant restaurant = new Restaurant();
+                dishes.add(new Dishes(data[1].trim(), Integer.parseInt(data[2].trim())));
+                dishes.add(new Dishes(data[3].trim(), Integer.parseInt(data[4].trim())));
+                dishes.add(new Dishes(data[5].trim(), Integer.parseInt(data[6].trim())));  
+                o.setOrder(dishes);
+                o.setLocationName( data[7]);
+                restaurant.setName(data[0]);
+                Restos restos = new Restos(o, restaurant);      
+                this.allRestos.add(restos);    
             }
-            o.setOrder(dishes);
-            o.setLocationName(restaurantLocation);
-            restaurant.setName(resturantName);
-            Restos restos = new Restos(o, restaurant);
-            this.allRestos.add(restos);
         }  
     } catch (Exception e) {
             System.out.println(" Error" + e);
@@ -48,7 +50,7 @@ public class Database {
 
     public ArrayList<Restos> getKenilworthRestos(){
         for (Restos r : this.allRestos) {
-          if (((Orders) r.getOrders).getLocationName().equals("Kenilworth")) {
+          if ( r.getOrders().getLocationName().toLowerCase().equals("kenilworth")) {
               this.kenilworthRestos.add(r);
           }
       }
@@ -57,7 +59,7 @@ public class Database {
 
     public ArrayList<Restos> getSeapointRestos() {
         for (Restos r : this.allRestos) {
-            if (((Orders) r.getOrders).getLocationName().equals("Seapoint")) {
+            if ( r.getOrders().getLocationName().trim().toLowerCase().equals("seapoint")) {
                 this.seapointRestos.add(r);
             }
         }
@@ -67,7 +69,7 @@ public class Database {
 
     public ArrayList<Restos> getRondeboschRestos() {
         for (Restos r : this.allRestos) {
-            if (((Orders) r.getOrders).getLocationName().equals("Rondebosch")) {
+            if (r.getOrders().getLocationName().toLowerCase().equals("rondebosch")) {
                 this.rondeboschRestos.add(r);
             }
         }
@@ -78,7 +80,7 @@ public class Database {
 
     public ArrayList<Restos> getAllRestos() {
         for (Restos r : this.allRestos) {
-            if (((Orders) r.getOrders).getLocationName().equals("all")) {
+            if (r.getOrders().getLocationName().toLowerCase().equals("all")) {
                 this.allRestos.add(r);
             }
         }

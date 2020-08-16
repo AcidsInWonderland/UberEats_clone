@@ -3,12 +3,12 @@ public class Restaurant {
 
     private String name;
 
-
+    Restaurant() {
+    }
 
     Restaurant(String name) {
         this.name = name;
     }
-
 
     //getters & setters
     public String getName(){

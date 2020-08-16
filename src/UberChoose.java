@@ -10,18 +10,18 @@ public class UberChoose {
     }
 
     public ArrayList<Restos> getRestosByLocation(String location) throws IOException {
-        ArrayList<Restos> returnList;
+        ArrayList<Restos> returnList = new ArrayList<Restos>();
         db.readFromCSV("bin\\restos.csv");
-        if(location == "kenilworth") {
+        if(location.equals("kenilworth")) {
             returnList = db.getKenilworthRestos();
         }
-        else if(location == "seapoint") {
+        else if(location.equals("seapoint")) {
             returnList = db.getSeapointRestos();
         }
-        else if(location == "rondebosch") {
+        else if(location.equals("rondebosch")) {
             returnList = db.getRondeboschRestos();
         }
-        else {
+        else if(location.equals("all")){
             returnList = db.getAllRestos();
         }
 
