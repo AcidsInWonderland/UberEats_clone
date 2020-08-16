@@ -21,25 +21,26 @@ public class Database {
         BufferedReader br = null;
         String line = " ";
         String cvsSplitBy = ",";
-        String restaurant = " ";
+        String restaurantLocation = "";
+        String resturantName = "";
     try {
            br = new BufferedReader(new FileReader("./bin/restos.csv"));//fr);
            Orders o = new Orders();
+           Restaurant restaurant = new Restaurant(resturantName);
            while ((line = br.readLine()) != null) {
                String[] data = line.split(cvsSplitBy);
+               restaurantLocation = data[7];
+               resturantName = data[0];
                for(int i = 0; i < 3; i++) {
                 int j = 2*i;
                 dishes.add(new Dishes(data[j+1].trim(), Integer.parseInt(data[j+2].trim())));	
             }
-
             o.setOrder(dishes);
-            o.setLocationName(data[7].trim());
+            o.setLocationName(restaurantLocation);
+            restaurant.setName(resturantName);
             Restos restos = new Restos(o, restaurant);
-        }
-        
-        Restos restos;
-        this.allRestos.add(restos);
-           
+            this.allRestos.add(restos);
+        }  
     } catch (Exception e) {
             System.out.println(" Error" + e);
         }
