@@ -1,16 +1,16 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 
-public class Restaurant {
+public class Order {
 
     // instance variables
     private String name;
-    private ArrayList<Dish> dishes;
+    private String[] itemsOrdered;
     private String location;
 
     // constructor
-    public Restaurant(String name, ArrayList<Dish> dishes, String location) {
+    public Order(String name, String[] itemsOrdered, String location) {
         this.name = name;
-        this.dishes = dishes;
+        this.itemsOrdered = itemsOrdered;
         this.location = location;
     }
 
@@ -19,8 +19,8 @@ public class Restaurant {
         return name;
     }
 
-    public ArrayList<Dish> getDishes() {
-        return dishes;
+    public String[] getItemsOrdered() {
+        return itemsOrdered;
     }
 
     public String getLocation() {
@@ -32,18 +32,17 @@ public class Restaurant {
         this.name = name;
     }
 
-    public void setDishes(ArrayList<Dish> dishes) {
-        this.dishes = dishes;
+    public void setItemsOrdered(String[] itemsOrdered) {
+        this.itemsOrdered = itemsOrdered;
     }
 
     public void setLocation(String location) {
         this.location = location;
     }
 
-
     // methods
     @Override
     public String toString() {
-        return name + ", " + location + "\nSignature Dishes: " + dishes;
+        return name + "\nOrdered items: " + Arrays.toString(itemsOrdered) + "\n" + location;
     }
 }

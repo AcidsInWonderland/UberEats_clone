@@ -1,3 +1,7 @@
+/** 
+* Princess Lulamani Baloyi
+**/
+
 SRCDIR = src
 BINDIR = bin
 DOCDIR = doc

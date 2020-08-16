@@ -1,20 +1,39 @@
-public class Person{
+import java.util.ArrayList;
 
-    //instance variables
+public class Person {
+
+    // instance variables
     private String name;
     private String surname;
-    private String phone_number;
-    private double cash;
+    private String location;
+    private ArrayList<Dish> cart = new ArrayList<>();
 
     // constructor
-    Person(String name, String surname, String phone_number, double cash) {
+    public Person(String name, String location, String surname) {
         this.name = name;
         this.surname = surname;
-        this.phone_number = phone_number;
-        this.cash = cash;
+        this.location = location;
+
     }
 
-    // setters & getters
+    // getters
+    public String getName() {
+        return name;
+    }
+
+    public String getSurame() {
+        return this.surname;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public ArrayList<Dish> getCart() {
+        return cart;
+    }
+
+
     // setters
     public void setName(String name) {
         this.name = name;
@@ -24,37 +43,25 @@ public class Person{
         this.surname = surname;
     }
 
-    public void setPhoneNumber(String phone_number) {
-        this.phone_number = phone_number;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public void setCash(double cash) {
-        this.cash = cash;
+    public void setCart(ArrayList<Dish> cart) {
+        this.cart = cart;
     }
 
-
-
-    // getters
-    public String getName() {
-        return this.name;
-    }
-
-    public String getSurame() {
-        return this.surname;
-    }
-
-    public String getPhoneNumber() {
-        return this.phone_number;
-    }
-
-    public double getCash() {
-        return this.cash;
-    }
-
+    // methods
+    @Override
     public String toString() {
-        return this.name + " " + this.surname;
+        return name + "\nSurname: " + surname + "\nLocation: " + location + "\ncart: " + cart; 
     }
 
+    public void addDish(Dish dish) {
+        cart.add(dish);
+    }
 
-    
+    public void deleteDish(int dishIndex) {
+        cart.remove(dishIndex);
+    }
 }
