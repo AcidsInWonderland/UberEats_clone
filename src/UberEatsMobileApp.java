@@ -38,7 +38,7 @@ public class UberEatsMobileApp {
 
         System.out.println(displayName+"\n");
         //takes user input
-        String restosString  = sc.nextLine();
+        String restos  = sc.nextLine();
 
         
         System.out.println("Loading dishes from your selected restaurant...\n");

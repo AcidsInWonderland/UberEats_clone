@@ -2,11 +2,12 @@ import java.io.*;
 import java.util.*;
 public class Database {
 
-    ArrayList<Restos> allRestos = new ArrayList<Restos>();
+	ArrayList<Restos> allRestos = new ArrayList<Restos>();
     ArrayList<Restos> kenilworthRestos = new ArrayList<Restos>();
     ArrayList<Restos> seapointRestos = new ArrayList<Restos>();
     ArrayList<Restos> rondeboschRestos = new ArrayList<Restos>();
     FileWriter csvWriter;
+    private ArrayList<Dishes> dishes;
 
     Database() {
         try {
@@ -22,47 +23,73 @@ public class Database {
         String cvsSplitBy = ",";
         String restaurant = " ";
     try {
-           br = new BufferedReader(new FileReader(filename));
+           br = new BufferedReader(new FileReader("./bin/restos.csv"));//fr);
            Orders o = new Orders();
            while ((line = br.readLine()) != null) {
                String[] data = line.split(cvsSplitBy);
                for(int i = 0; i < 3; i++) {
-                
-               }
+                int j = 2*i;
+                dishes.add(new Dishes(data[j+1].trim(), Integer.parseInt(data[j+2].trim())));	
             }
-        Restos restos = new Restos(o, restaurant);
+
+            o.setOrder(dishes);
+            o.setLocationName(data[7].trim());
+            Restos restos = new Restos(o, restaurant);
+        }
+        
+        Restos restos;
         this.allRestos.add(restos);
+           
     } catch (Exception e) {
             System.out.println(" Error" + e);
         }
     }
 
     public ArrayList<Restos> getKenilworthRestos(){
-        // TODO: actually do this and change return type
-        return kenilworthRestos;
-        } 
+        for (Restos r : this.allRestos) {
+          if (((Orders) r.getOrders).getLocationName().equals("Kenilworth")) {
+              this.kenilworthRestos.add(r);
+          }
+      }
+      return this.kenilworthRestos;
+  }
 
     public ArrayList<Restos> getSeapointRestos() {
-        // TODO: actually do this and change return type
-        return seapointRestos;
+        for (Restos r : this.allRestos) {
+            if (((Orders) r.getOrders).getLocationName().equals("Seapoint")) {
+                this.seapointRestos.add(r);
+            }
         }
+        return this.seapointRestos;
+    }
+    
 
     public ArrayList<Restos> getRondeboschRestos() {
-        // TODO: actually do this and change return type
-        return rondeboschRestos;
+        for (Restos r : this.allRestos) {
+            if (((Orders) r.getOrders).getLocationName().equals("Rondebosch")) {
+                this.rondeboschRestos.add(r);
+            }
         }
+        return this.rondeboschRestos;
+    }
+    
 
 
     public ArrayList<Restos> getAllRestos() {
-        // TODO: actually do this and change return type
-        return allRestos;
+        for (Restos r : this.allRestos) {
+            if (((Orders) r.getOrders).getLocationName().equals("all")) {
+                this.allRestos.add(r);
+            }
         }
+        return this.allRestos;
+    }
+    
 
 	public void WritetoCSV(Restos restos) {
-       
+
     }
 
-    
+
 	public void closeFileWriting() {
 	} 
 }

@@ -2,6 +2,7 @@ public class Restos {
 
     private Orders orders;
     private Restaurant restaurant;
+	public Object getOrders;
 
 
     Restos(Orders orders, Restaurant restaurant) {
